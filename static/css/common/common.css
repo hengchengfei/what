@@ -1,0 +1,31 @@
+/*!
+站点通用样式
+==============================================
+ */
+
+@import url('include/reset.css?__inline');
+@import url('include/base.css?__inline');
+@import url('include/font.css?__inline');
+@import url('include/components.css?__inline');
+@import url('include/icons.css?__inline');
+@import url('include/layout.css?__inline');
+
+@import url('include/brick.css?__inline');
+
+
+.inline{display:inline-block;}
+.va-m{vertical-align: middle;}
+.va-m{vertical-align: middle;}
+.hide{display:none;}
+.show{display:block;}
+.pointer{cursor:pointer;}
+.fl{float:left;}
+.fr{float:right;}
+.bold{font-weight:bold;}
+.clear{clear:both;height:2px;line-height:2px;}
+.autop{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.autom{margin:0 auto;}
+.cp{position:absolute;}
+.gray{color:#aab2bd}
+#mainbody{padding-top:120px;}
+a:focus{outline:none;-moz-outline:none;}
