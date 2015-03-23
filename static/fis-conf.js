@@ -34,7 +34,7 @@ fis.config.set('roadmap', {
     //定制项目文件属性
     path: [{
         reg: /\/html\/(.*\.html)/,
-        release : '/html/$1'
+        release : '/$1'
     }, {
         reg: /\/html\/(.*\.(?:jpg|png))/i,
         release: '/assets/img/$1',
