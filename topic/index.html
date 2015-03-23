@@ -164,14 +164,11 @@
 
         if (navigator.userAgent.match(/MicroMessenger/i)) {
             $("#download a").attr("href", "http://a.app.qq.com/o/simple.jsp?pkgname=com.self.what");
-            return;
         }
-
-        if (location.pathname.match(/topic/)) {
+        else if (location.pathname.match(/topic/)) {
             $("#download a").attr("href", "selfwhat://?type=topic" + "&id=" + get_url_param("id") + "&name=" + location.hash);
         }
-
-        if (location.pathname.match(/content/)) {
+        else if (location.pathname.match(/content/)) {
             $("#download a").attr("href", "selfwhat://?type=content" + "&id=" + get_url_param("id"));
         }
 
