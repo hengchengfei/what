@@ -60,6 +60,9 @@
     -ms-perspective-origin: 50% 50%;
     -moz-perspective-origin: 50% 50%;
 }
+.i_four {
+    overflow: hidden;
+}
 .i_four > div {
     perspective: 100em;
     -webkit-perspective: 100em;
@@ -107,10 +110,60 @@
 .i_four div[index="2"], .i_four div[index="4"] {
     z-index: 10;
 }
+.i_five {
+    overflow: hidden;
+}
+.i_five > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.i_five div[index="1"] {
+    z-index: 11;
+}
+.i_five div[index="2"] {
+    z-index: 10;
+}
 .i_five div div {
     width: 25%;
-    height: 20%;
+    height: 25%;
+    background-size: 400%, 400%;
     float: left;
+}
+.i_seven {
+    perspective: 100em;
+    -webkit-perspective: 100em;
+    -o-perspective: 100em;
+    -ms-perspective: 100em;
+    -moz-perspective: 100em;
+
+    perspective-origin: 50% 50%;
+    -webkit-perspective-origin: 50% 50%;
+    -o-perspective-origin: 50% 50%;
+    -ms-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+}
+.i_seven div {
+    width: 200%;
+    position: absolute;
+    top: 0;
+}
+.i_seven div[index="1"] {
+    left: -100%;
+    opacity: 1;
+    z-index: 11;
+}
+.i_seven div[index="1"]  img {
+    float: right;
+    width: 50%;
+    z-index: 10;
+}
+.i_seven div[index="2"] {
+    right: -100%;
+    opacity: 0;
+}
+.i_seven div[index="2"]  img {
+    width: 50%;
 }
 .c_topic {
     font-size: 15px;

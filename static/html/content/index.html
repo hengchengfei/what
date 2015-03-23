@@ -15,127 +15,123 @@
     <div class="wait"></div>
 
     <div class="page" ng-controller="ContentCtrl">
-        <div class="c_head none">
+        <div class="c_head">
             <img class="cicle" src="{{content.create_user.user_avatar}}" width="44" height="44">
             <p class="u_name">{{content.create_user.user_name}}</p>
             <p class="c_time">{{content.create_time | time}}</p>
         </div>
 
-        <!--
-        <div class="c_img i_one" onclick="img_one(this)">
-            <div index="1">
-                <img src="{{content.photos[0].url_small}}">
-            </div>
-            <div index="2">
-                <img src="{{content.photos[1].url_small}}">
-            </div>
-        </div>
-        -->
-        <!-- 
-        <div class="c_img i_three" onclick="img_three(this)">
-            <div index="1">
-                <img src="{{content.photos[0].url_small}}">
-            </div>
-            <div index="2">
-                <img src="{{content.photos[1].url_small}}">
-            </div>
-        </div>
-         -->
-        <!--
-        <div class="c_img i_four" onclick="img_four(this)">
-            <div class="i_four_one">
-                <div index="1">
-                    <div style="background-image: url({{content.photos[0].url_small}});"></div>
+        <!-- start animation -->
+                <div class="c_img i_one" onclick="img_one(this)" ng-if="content.animation.id == 1">
+                    <div index="1">
+                        <img src="{{content.photos[0].url_small}}">
+                    </div>
+                    <div index="2">
+                        <img src="{{content.photos[1].url_small}}">
+                    </div>
                 </div>
-                <div index="2">
-                    <div style="background-image: url({{content.photos[1].url_small}});"></div>
-                </div>
-            </div>
-            <div class="i_four_two">
-                <div index="3">
-                    <div style="background-image: url({{content.photos[0].url_small}});"></div>
-                </div>
-                <div index="4">
-                    <div style="background-image: url({{content.photos[1].url_small}});"></div>
-                </div>
-            </div>
-        </div> 
-        -->
-        <div class="c_img i_five" onclick="img_three(this)">
-            <div index="1">
-                <div style="background-image:url({{content.photos[0].url_small}});background-position: 0% 0%;"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-
-
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
                 
+                <div class="c_img i_three" onclick="img_three(this)" ng-if="content.animation.id == 3">
+                    <div index="1">
+                        <img src="{{content.photos[0].url_small}}">
+                    </div>
+                    <div index="2">
+                        <img src="{{content.photos[1].url_small}}">
+                    </div>
+                </div>
+                
+                <div class="c_img i_four" onclick="img_four(this)" ng-if="content.animation.id == 4">
+                    <div class="i_four_one">
+                        <div index="1">
+                            <div style="background-image: url({{content.photos[0].url_small}});"></div>
+                        </div>
+                        <div index="2">
+                            <div style="background-image: url({{content.photos[1].url_small}});"></div>
+                        </div>
+                    </div>
+                    <div class="i_four_two">
+                        <div index="3">
+                            <div style="background-image: url({{content.photos[0].url_small}});"></div>
+                        </div>
+                        <div index="4">
+                            <div style="background-image: url({{content.photos[1].url_small}});"></div>
+                        </div>
+                    </div>
+                </div> 
+                
+                <div class="c_img i_five" onclick="img_five(this)" ng-if="content.animation.id == 5">
+                    <div index="1">
+                        <div class="three_1" style="background-image:url({{content.photos[0].url_small}});background-position: 0% 0%;"></div>
+                        <div class="three_2" style="background-image:url({{content.photos[0].url_small}});background-position: 33% 0%;"></div>
+                        <div class="three_3" style="background-image:url({{content.photos[0].url_small}});background-position: 66% 0%;"></div>
+                        <div class="three_4" style="background-image:url({{content.photos[0].url_small}});background-position: 99% 0%;"></div>
 
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-                <div style="background-image:url({{content.photos[0].url_small}})"></div>
-            </div>
-            <div index="2">
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
+                        <div class="three_5"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 33%;"></div>
+                        <div class="three_6"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 33%;"></div>
+                        <div class="three_7"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 33%;"></div>
+                        <div class="three_8" style="background-image:url({{content.photos[0].url_small}});background-position: 99% 33%;"></div>
 
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
+                        <div class="three_9"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 66%;"></div>
+                        <div class="three_10"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 66%;"></div>
+                        <div class="three_11"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 66%;"></div>
+                        <div class="three_12"  style="background-image:url({{content.photos[0].url_small}});background-position: 99% 66%;"></div>
 
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
+                        <div class="three_13"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 99%;"></div>
+                        <div class="three_14"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 99%;"></div>
+                        <div class="three_15"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 99%;"></div>
+                        <div class="three_16"  style="background-image:url({{content.photos[0].url_small}});background-position: 99% 99%;"></div>
+                    </div>
+                    <div index="2">
+                        <div class="three_1" style="background-image:url({{content.photos[1].url_small}});background-position: 0% 0%;"></div>
+                        <div class="three_2" style="background-image:url({{content.photos[1].url_small}});background-position: 33% 0%;"></div>
+                        <div class="three_3" style="background-image:url({{content.photos[1].url_small}});background-position: 66% 0%;"></div>
+                        <div class="three_4" style="background-image:url({{content.photos[1].url_small}});background-position: 99% 0%;"></div>
 
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
-                <img src="{{content.photos[1].url_small}}">
+                        <div class="three_5"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 33%;"></div>
+                        <div class="three_6"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 33%;"></div>
+                        <div class="three_7"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 33%;"></div>
+                        <div class="three_8" style="background-image:url({{content.photos[1].url_small}});background-position: 99% 33%;"></div>
 
-                <img src="{{content.photos[0].url_small}}">
-                <img src="{{content.photos[0].url_small}}">
-                <img src="{{content.photos[0].url_small}}">
-                <img src="{{content.photos[0].url_small}}">
-            </div>
-        </div>
+                        <div class="three_9"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 66%;"></div>
+                        <div class="three_10"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 66%;"></div>
+                        <div class="three_11"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 66%;"></div>
+                        <div class="three_12"  style="background-image:url({{content.photos[1].url_small}});background-position: 99% 66%;"></div>
+
+                        <div class="three_13"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 99%;"></div>
+                        <div class="three_14"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 99%;"></div>
+                        <div class="three_15"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 99%;"></div>
+                        <div class="three_16"  style="background-image:url({{content.photos[1].url_small}});background-position: 99% 99%;"></div>
+                    </div>
+                </div>
+               
+                <div class="c_img i_seven" onclick="img_seven(this)" ng-if="content.animation.id == 7">
+                    <div index="1">
+                        <img src="{{content.photos[0].url_small}}">
+                    </div>
+                    <div index="2">
+                        <img src="{{content.photos[1].url_small}}">
+                    </div>
+                </div> 
+        <!-- end animation -->
 
         <ul class="c_topic">
             <li ng-repeat="ele in content.topics">
                 <a href="?id=2">{{ele.name}}</a>
             </li>
         </ul>
-        <div class="c_zan none">
+        <div class="c_zan">
             <em class="before">同感</em>
             <em class="after none">{{content.count_info.zan_count + 1}}</em>
         </div>
-        <div class="c_user none">
+        <div class="c_user">
             <p>我们都有同感</p>
             <ul class="u_list">
-                <li ng-repeat="ele in content.zan_users">
+                <li ng-repeat="ele in content.zan_users | limitTo  : 5">
                     <img class="cicle" src="{{ele.user_avatar}}" width="40" height="40">
                 </li>
             </ul>
         </div>
-        <div class="c_comment none">
+        <div class="c_comment">
             <p class="co_title">评论</p>
             <ul class="co_list">
                 <li ng-repeat="ele in comment.datas">
@@ -148,8 +144,8 @@
         </div>
     </div>
 
-    <link rel="import" href="../include/download/index.html?__inline">
     <link rel="import" href="../include/script.html?__inline">
+    <link rel="import" href="../include/download/index.html?__inline">
 
     <script>
         var app = angular.module('What', [], angular.noop);
@@ -158,7 +154,7 @@
             $scope.content = [];
             $scope.comment = [];
 
-            $http.get('http://api.mkwhat.com/self-app/content/info?content_id=1')
+            $http.get("http://api.mkwhat.com/self-app/content/info?content_id=" + get_url_param("id"))
             .success(function (data) {
                 if ( ! data.data) {
                     get_content_error();
@@ -168,19 +164,23 @@
                 $scope.content = data.data;
 
                 $("title").text("\"" + data.data.create_user.user_name + "\"" + "的作品");
+
+                if (data.data.zan_users.length == 0) {
+                    $(".c_user").addClass("none");
+                }
             })
             .error(get_content_error);
 
-            $http.get('http://api.mkwhat.com/self-app/comment/list?content_id=1&page=1')
+            $http.get("http://api.mkwhat.com/self-app/comment/list?content_id=" + get_url_param("id") + "&page=1")
             .success(function (data) {
                 if ( ! data.data) {
-                    get_content_error();
+                    get_comment_error();
                     return;
                 }
 
                 $scope.comment = data.data;
             })
-            .error(get_content_error);
+            .error(get_comment_error);
         });
 
         app.filter('time', function () {
@@ -207,13 +207,11 @@
         });
 
         function get_content_error () {
-            // body...
-            console.log('get_content_error');
+            $(".c_comment").addClass("none");
         }
 
         function get_comment_error () {
-            // body...
-            console.log('get_content_error');
+            $(".c_comment").addClass("none");
         }
 
         $(".c_img").css("height", $(".c_img").css("width"));

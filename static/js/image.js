@@ -102,19 +102,90 @@ function img_four (ele) {
 
     setTimeout(function() {
         $(ele).attr("status", 0);
-    });
+    }, 1500);
 }
 
 function img_five (ele) {
     // 我为何如此美
+    var first = $(ele).find("div[index=1]"),
+        second = $(ele).find("div[index=2]"),
+        divs = $(ele).find("div[index=1] div");
+
+    if ($(ele).attr("status") == 1) 
+        return;
+    else 
+        $(ele).attr("status", 1);
+
+    var count = 0, add_one = function () {
+        count++;
+        if (count === divs.length) {
+            $(first).css("z-index", 10);
+            $(second).css("z-index", 11);
+
+            $(first).attr("index", 2);
+            $(second).attr("index", 1);
+
+            divs.css("margin-top", "0");
+            $(ele).attr("status", 0);
+        }
+    };
+
+    (function move_x (divs, current) {
+
+        move(divs[current--]).ease('snap').set("margin-top", "100%").end(add_one);
+        move(divs[current--]).ease('in').set("margin-top", "100%").end(add_one);
+        move(divs[current--]).ease('out').set("margin-top", "100%").end(add_one);
+        move(divs[current--]).ease('in-out').set("margin-top", "100%").end(add_one);
+
+        if (current > 0) {
+            setTimeout(move_x(divs, current), 1000);
+        };
+    })(divs, divs.length - 1);
 }
+
 function img_six (ele) {
     // 自拍中勿打扰
 }
 function img_seven (ele) {
     // 基情噼里啪啦
-    var first = $(ele).find("img[index=1]")[0],
-        second = $(ele).find("img[index=2]")[0];
+    var first = $(ele).find("div[index=1]")[0],
+        second = $(ele).find("div[index=2]")[0];
+
+    move(first)
+        .rotateY(80)
+        .scale(0.8)
+        .duration('1.5s')
+        .end();
+
+    move(second)
+        .rotateY(-80)
+        .duration('0.3s')
+        .scale(0.7)
+        .duration('0.3s')
+        .end(function () {
+
+            css($(first), "z-index", "10");
+            css($(second), "z-index", "11");
+            css($(second), "opacity", 1);
+
+            setTimeout(function () {
+                move(second)
+                    .rotateY(0)
+                    .scale(1)
+                    .duration('1.5s')
+                    .end(function () {
+                        // over
+                        $(first).attr("index", 2);
+                        $(second).attr("index", 1);
+
+                        css($(first), "opacity", "0");
+                        css($(first), "-webkit-transform", "none");
+
+                        $(ele).attr("status", 0);
+                    });
+            }, 1);
+    });
+
 }
 
 function css (ele, key, value) {

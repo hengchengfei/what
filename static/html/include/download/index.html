@@ -1,5 +1,20 @@
-<div class="none" style="height:54px; position:fixed; bottom:0; left:0; right:0; background-color: rgb(251, 205, 178);">
-    <img src="include/appicon.png" width="45" height="45" style="position:absolute; top:5px; left: 8px;">
-    <p style="margin-left:64px; margin-top:6px;">慢点<br>属于你和你的同类</p>
-    <img src="include/button_download.png" width="90" height="35" style="position:absolute; top:10px; right: 8px;">
+<div id="download" class="none" style="height:54px; position:fixed; bottom:0; left:0; right:0; background-color: rgb(251, 205, 178);">
+        <a href="selfwhat://" onclick="download_click()">
+            <img src="include/appicon.png" width="45" height="45" style="position:absolute; top:5px; left: 8px;">
+            <p style="margin-left:64px; margin-top:6px;">慢点<br>属于你和你的同类</p>
+            <img src="include/button_download.png" width="90" height="35" style="position:absolute; top:10px; right: 8px;">
+        </a>
 </div>
+<script>
+        if (navigator.userAgent.match(/Mac OS X/)) {
+            $("#download").removeClass("none");
+        }
+
+        $("#download a").attr("href", "selfwhat://" + location.search);
+
+        function download_click () {
+                setTimeout(function () {
+                        location.href = "https://itunes.apple.com/app/id958445502?mt=8&l=zh";
+                }, 500);
+        }
+</script>
