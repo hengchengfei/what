@@ -10,7 +10,13 @@
             $("#download").removeClass("none");
         }
 
-        $("#download a").attr("href", "selfwhat://" + location.search);
+        if (location.pathname.match(/topic/)) {
+            $("#download a").attr("href", "selfwhat://?type=topic" + "&id=" + get_url_param("id") + "&name=" + get_url_param("name");
+        }
+
+        if (location.pathname.match(/content/)) {
+            $("#download a").attr("href", "selfwhat://?type=content" + "&id=" + get_url_param("id"));
+        }
 
         function download_click () {
                 setTimeout(function () {
