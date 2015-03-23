@@ -166,12 +166,12 @@
         </a>
 </div>
 <script>
-        if (navigator.userAgent.match(/Mac OS X/)) {
+        if (navigator.userAgent.match(/Mac OS X/i)) {
             $("#download").removeClass("none");
         }
 
         if (location.pathname.match(/topic/)) {
-            $("#download a").attr("href", "selfwhat://?type=topic" + "&id=" + get_url_param("id") + "&name=" + get_url_param("name");
+            $("#download a").attr("href", "selfwhat://?type=topic" + "&id=" + get_url_param("id") + "&name=" + location.hash);
         }
 
         if (location.pathname.match(/content/)) {
