@@ -33,6 +33,17 @@
 .c_img {
     position: relative;
 }
+.c_img :after {
+    content: " ";
+    display: block;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-image: url(play.png);
+    background-size: 100%;
+}
 .c_img * {
     width: 100%;
     height: 100%;

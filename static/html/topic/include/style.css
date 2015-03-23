@@ -47,9 +47,151 @@ body {
     font-size: 12px;
     color: rgb(153, 153, 153);
 }
-.c_img img {
+.c_img {
+    position: relative;
+}
+.c_img :after {
+    content: " ";
+    display: block;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-image: url(play.png);
+    background-size: 100%;
+}
+.c_img * {
     width: 100%;
-    min-height: 250px;
+    height: 100%;
+}
+.i_one div[index="1"], .i_three div[index="1"] {
+    opacity: 1;
+}
+.i_one div[index="2"], .i_three div[index="2"] {
+    opacity: 0;
+}
+.i_one div, .i_three div, .i_four > div {
+    position: absolute;
+    top: 0;
+}
+.i_three {
+    perspective: 100em;
+    -webkit-perspective: 100em;
+    -o-perspective: 100em;
+    -ms-perspective: 100em;
+    -moz-perspective: 100em;
+
+    perspective-origin: 50% 50%;
+    -webkit-perspective-origin: 50% 50%;
+    -o-perspective-origin: 50% 50%;
+    -ms-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+}
+.i_four {
+    overflow: hidden;
+}
+.i_four > div {
+    perspective: 100em;
+    -webkit-perspective: 100em;
+    -o-perspective: 100em;
+    -ms-perspective: 100em;
+    -moz-perspective: 100em;
+}
+.i_four_one {
+    left: -50%;
+
+    perspective-origin: left center;
+    -webkit-perspective-origin: left center;
+    -o-perspective-origin: left center;
+    -ms-perspective-origin: left center;
+    -moz-perspective-origin: left center;
+}
+.i_four_two {
+    right: -50%;
+
+    perspective-origin: 100% 50%;
+    -webkit-perspective-origin: 100% 50%;
+    -o-perspective-origin: 100% 50%;
+    -ms-perspective-origin: 100% 50%;
+    -moz-perspective-origin: 100% 50%;
+}
+.i_four div div {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.i_four div div div {
+    width: 50%;
+    background-size: cover;
+}
+.i_four div[index="1"] div, .i_four div[index="2"] div {
+    margin-left: 50%;
+    background-position: center left;
+}
+.i_four div[index="3"] div, .i_four div[index="4"] div {
+    background-position: center right;
+}
+.i_four div[index="1"], .i_four div[index="3"] {
+    z-index: 11;
+}
+.i_four div[index="2"], .i_four div[index="4"] {
+    z-index: 10;
+}
+.i_five {
+    overflow: hidden;
+}
+.i_five > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.i_five div[index="1"] {
+    z-index: 11;
+}
+.i_five div[index="2"] {
+    z-index: 10;
+}
+.i_five div div {
+    width: 25%;
+    height: 25%;
+    background-size: 400%, 400%;
+    float: left;
+}
+.i_seven {
+    perspective: 100em;
+    -webkit-perspective: 100em;
+    -o-perspective: 100em;
+    -ms-perspective: 100em;
+    -moz-perspective: 100em;
+
+    perspective-origin: 50% 50%;
+    -webkit-perspective-origin: 50% 50%;
+    -o-perspective-origin: 50% 50%;
+    -ms-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+}
+.i_seven div {
+    width: 200%;
+    position: absolute;
+    top: 0;
+}
+.i_seven div[index="1"] {
+    left: -100%;
+    opacity: 1;
+    z-index: 11;
+}
+.i_seven div[index="1"]  img {
+    float: right;
+    width: 50%;
+    z-index: 10;
+}
+.i_seven div[index="2"] {
+    right: -100%;
+    opacity: 0;
+}
+.i_seven div[index="2"]  img {
+    width: 50%;
 }
 .c_topic {
     font-size: 15px;
