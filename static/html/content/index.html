@@ -1,13 +1,222 @@
 <!doctype html>
-<html>
+<html ng-app="What">
 <head>
     <meta charset="UTF-8">
     <title></title>
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <link rel="import" href="../include/link.html?__inline">
     <link rel="stylesheet" href="include/style.css?__inline">
 </head>
 <body>
 
+    <div class="wait"></div>
+
+    <div class="page" ng-controller="ContentCtrl">
+        <div class="c_head none">
+            <img class="cicle" src="{{content.create_user.user_avatar}}" width="44" height="44">
+            <p class="u_name">{{content.create_user.user_name}}</p>
+            <p class="c_time">{{content.create_time | time}}</p>
+        </div>
+
+        <!--
+        <div class="c_img i_one" onclick="img_one(this)">
+            <div index="1">
+                <img src="{{content.photos[0].url_small}}">
+            </div>
+            <div index="2">
+                <img src="{{content.photos[1].url_small}}">
+            </div>
+        </div>
+        -->
+        <!-- 
+        <div class="c_img i_three" onclick="img_three(this)">
+            <div index="1">
+                <img src="{{content.photos[0].url_small}}">
+            </div>
+            <div index="2">
+                <img src="{{content.photos[1].url_small}}">
+            </div>
+        </div>
+         -->
+        <!--
+        <div class="c_img i_four" onclick="img_four(this)">
+            <div class="i_four_one">
+                <div index="1">
+                    <div style="background-image: url({{content.photos[0].url_small}});"></div>
+                </div>
+                <div index="2">
+                    <div style="background-image: url({{content.photos[1].url_small}});"></div>
+                </div>
+            </div>
+            <div class="i_four_two">
+                <div index="3">
+                    <div style="background-image: url({{content.photos[0].url_small}});"></div>
+                </div>
+                <div index="4">
+                    <div style="background-image: url({{content.photos[1].url_small}});"></div>
+                </div>
+            </div>
+        </div> 
+        -->
+        <div class="c_img i_five" onclick="img_three(this)">
+            <div index="1">
+                <div style="background-image:url({{content.photos[0].url_small}});background-position: 0% 0%;"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+
+
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                
+
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+                <div style="background-image:url({{content.photos[0].url_small}})"></div>
+            </div>
+            <div index="2">
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+                <img src="{{content.photos[1].url_small}}">
+
+                <img src="{{content.photos[0].url_small}}">
+                <img src="{{content.photos[0].url_small}}">
+                <img src="{{content.photos[0].url_small}}">
+                <img src="{{content.photos[0].url_small}}">
+            </div>
+        </div>
+
+        <ul class="c_topic">
+            <li ng-repeat="ele in content.topics">
+                <a href="?id=2">{{ele.name}}</a>
+            </li>
+        </ul>
+        <div class="c_zan none">
+            <em class="before">同感</em>
+            <em class="after none">{{content.count_info.zan_count + 1}}</em>
+        </div>
+        <div class="c_user none">
+            <p>我们都有同感</p>
+            <ul class="u_list">
+                <li ng-repeat="ele in content.zan_users">
+                    <img class="cicle" src="{{ele.user_avatar}}" width="40" height="40">
+                </li>
+            </ul>
+        </div>
+        <div class="c_comment none">
+            <p class="co_title">评论</p>
+            <ul class="co_list">
+                <li ng-repeat="ele in comment.datas">
+                    <img class="cicle" src="{{ele.create_user.user_avatar}}" width="50px" height="50px">
+                    <p class="co_name">Evie</p>
+                    <p class="co_content">{{ele.text}}</p>
+                    <p class="co_time">{{ele.create_time | time}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <link rel="import" href="../include/download/index.html?__inline">
+    <link rel="import" href="../include/script.html?__inline">
+
+    <script>
+        var app = angular.module('What', [], angular.noop);
+
+        app.controller('ContentCtrl', function ($scope, $http) {
+            $scope.content = [];
+            $scope.comment = [];
+
+            $http.get('http://api.mkwhat.com/self-app/content/info?content_id=1')
+            .success(function (data) {
+                if ( ! data.data) {
+                    get_content_error();
+                    return;
+                }
+
+                $scope.content = data.data;
+
+                $("title").text("\"" + data.data.create_user.user_name + "\"" + "的作品");
+            })
+            .error(get_content_error);
+
+            $http.get('http://api.mkwhat.com/self-app/comment/list?content_id=1&page=1')
+            .success(function (data) {
+                if ( ! data.data) {
+                    get_content_error();
+                    return;
+                }
+
+                $scope.comment = data.data;
+            })
+            .error(get_content_error);
+        });
+
+        app.filter('time', function () {
+
+            return function (input) {
+
+                var time = (Date.now() - input) / 1000;
+
+                if (time <= 0) {
+                    return "刚刚";
+                }
+                if (time < 60) {
+                    return time + "秒前";
+                }
+                if (time < 60 * 60) {
+                    return Math.floor(time / 60) + "分钟前";
+                }
+                if (time < 60 * 60 * 24) {
+                    return Math.floor(time / 60 / 60) + "小时前";
+                }
+
+                return Math.floor(time / 60 / 60 / 24) + "天前";
+            };
+        });
+
+        function get_content_error () {
+            // body...
+            console.log('get_content_error');
+        }
+
+        function get_comment_error () {
+            // body...
+            console.log('get_content_error');
+        }
+
+        $(".c_img").css("height", $(".c_img").css("width"));
+    </script>
 </body>
 </html>

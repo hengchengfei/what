@@ -1,0 +1,195 @@
+.cicle {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+.page {
+    margin: 0 auto;
+    padding-top: 1px;
+    padding-bottom: 66px;
+}
+.c_head {
+    height: 57px;
+}
+.c_head img {
+    position: absolute;
+    top: 8px;
+    left: 11px;
+}
+.u_name, .c_time {
+    margin-left: 72px;
+    position: relative;
+    top: 10px;
+}
+.u_name {
+    font-size: 15px;
+    color: rgb(51, 51, 51);
+}
+.c_time {
+    font-size: 12px;
+    color: rgb(153, 153, 153);
+}
+.c_img {
+    position: relative;
+}
+.c_img * {
+    width: 100%;
+    height: 100%;
+}
+.i_one div[index="1"], .i_three div[index="1"] {
+    opacity: 1;
+}
+.i_one div[index="2"], .i_three div[index="2"] {
+    opacity: 0;
+}
+.i_one div, .i_three div, .i_four > div {
+    position: absolute;
+    top: 0;
+}
+.i_three {
+    perspective: 100em;
+    -webkit-perspective: 100em;
+    -o-perspective: 100em;
+    -ms-perspective: 100em;
+    -moz-perspective: 100em;
+
+    perspective-origin: 50% 50%;
+    -webkit-perspective-origin: 50% 50%;
+    -o-perspective-origin: 50% 50%;
+    -ms-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+}
+.i_four > div {
+    perspective: 100em;
+    -webkit-perspective: 100em;
+    -o-perspective: 100em;
+    -ms-perspective: 100em;
+    -moz-perspective: 100em;
+}
+.i_four_one {
+    left: -50%;
+
+    perspective-origin: left center;
+    -webkit-perspective-origin: left center;
+    -o-perspective-origin: left center;
+    -ms-perspective-origin: left center;
+    -moz-perspective-origin: left center;
+}
+.i_four_two {
+    right: -50%;
+
+    perspective-origin: 100% 50%;
+    -webkit-perspective-origin: 100% 50%;
+    -o-perspective-origin: 100% 50%;
+    -ms-perspective-origin: 100% 50%;
+    -moz-perspective-origin: 100% 50%;
+}
+.i_four div div {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.i_four div div div {
+    width: 50%;
+    background-size: cover;
+}
+.i_four div[index="1"] div, .i_four div[index="2"] div {
+    margin-left: 50%;
+    background-position: center left;
+}
+.i_four div[index="3"] div, .i_four div[index="4"] div {
+    background-position: center right;
+}
+.i_four div[index="1"], .i_four div[index="3"] {
+    z-index: 11;
+}
+.i_four div[index="2"], .i_four div[index="4"] {
+    z-index: 10;
+}
+.i_five div div {
+    width: 25%;
+    height: 20%;
+    float: left;
+}
+.c_topic {
+    font-size: 15px;
+    line-height: 1em;
+    margin-top: 10px;
+    color: rgb(72, 109, 154);
+}
+.c_topic li {
+    display: inline-block;
+    margin-left: 20px;
+}
+.c_zan {
+    text-align: center;
+    margin-top: 9px;
+}
+.c_zan em {
+    width: 47px;
+    display: inline-block;
+    margin: 0 auto;
+    padding-top: 50px;
+    font-size: 12px;
+    background-size: 47px;
+    background-repeat: no-repeat;
+}
+.c_zan .before {
+    color: rgb(72, 109, 154);
+    background-image: url(praise.png);
+}
+.c_zan .after {
+    color: rgb(250, 177, 45);
+    background-image: url(praise_press.png);
+}
+.c_user, .c_comment {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.c_user {
+    margin-top: 15px;
+}
+.c_user p{
+    font-size: 13.5px;
+    color: rgb(102, 102, 102);
+}
+.u_list {
+    margin-top: 9px;
+}
+.u_list li {
+    display: inline-block;
+}
+.u_list img {
+    margin-right: 9px;
+}
+.c_comment {
+    margin-top: 15px;
+}
+.co_title {
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+.co_list li {
+    position: relative;
+    padding-top: 10px;
+}
+.co_list img {
+    position: absolute;
+    top: 16px;
+}
+.co_list p {
+    margin-left: 62px;
+}
+.co_name {
+    font-size: 15px;
+    color: rgb(72, 109, 154);
+}
+.co_content {
+    font-size: 15px;
+    color: rgb(102, 102, 102);
+}
+.co_time {
+    font-size: 12px;
+    color: rgb(216, 216, 216);
+}

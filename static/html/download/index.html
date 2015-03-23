@@ -2,12 +2,70 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>what</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+
+    <link rel="import" href="../include/link.html?__inline">
+    <link rel="stylesheet" href="../../css/vendor/reveal.css">
     <link rel="stylesheet" href="include/style.css?__inline">
 </head>
 <body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <section>
+                    <img src="include/one.png" height="100%">
+                    <div class="download_one"></div>
+                    <div class="more navigate-down"></div>
+                </section>
+                <section>
+                    <img src="include/two.png" height="100%">
+                    <div class="more navigate-down"></div>
+                </section>
+                <section>
+                    <img src="include/three.png" height="100%">
+                    <div class="more navigate-down"></div>
+                </section>
+                <section>
+                    <img src="include/four.png" height="100%">
+                    <div class="more navigate-down"></div>
+                </section>
+                <section>
+                    <img src="include/five.png" height="100%">
+                    <div class="more navigate-down"></div>
+                </section>
+                <section>
+                    <img src="include/six.png" height="100%">
+                    <div class="download_six"></div>
+                    <div class="erweima">
+                        <p>长按二维码来我家做客<br>公众号：mandian</p>
+                        <img src="include/erweima.png" height="70%">
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../../js/vendor/jquery.min.js"></script>
+    <script src="../../js/vendor/reveal.js"></script>
+
+    <script>
+    Reveal.initialize({
+        width: window.screen.availWidth,
+        height: window.screen.availHeight,
+        controls: false,
+        progress: false,
+        history: true,
+        center: false,
+        touch: true,
+        minScale: 1,
+        maxScale: 1,
+
+        transition: 'convex', //none/fade/slide/convex/concave/zoom
+    });
+    </script>
 
 </body>
 </html>

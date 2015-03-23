@@ -1,1 +1,0 @@
-$(document).ready(function(){switch(menu_sl){case 0:$("#header_nav a").removeClass("sel");break;case 1:$("#header_nav a").removeClass("sel"),$("#header_nav a[tg='1']").addClass("sel");break;case 2:$("#header_nav a[tg='2']").addClass("sel");break;case 3:$("#header_nav a[tg='3']").addClass("sel");break;case 4:$("#header_nav a[tg='4']").addClass("sel")}});

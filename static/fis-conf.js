@@ -52,7 +52,7 @@ fis.config.set('roadmap', {
         release : '/assets/css/$1',
         useHash: false
     }, {
-        reg: /\/js\/(.*\.js)/i,
+        reg: /\/js\/(.*\.(?:js|map))/i,
         release : '/assets/js/$1',
         useHash: false
     }, {

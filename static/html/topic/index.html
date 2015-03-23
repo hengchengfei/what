@@ -1,21 +1,96 @@
 <!doctype html>
-<html>
+<html ng-app="What">
 <head>
     <meta charset="UTF-8">
     <title></title>
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
     <link rel="import" href="../include/link.html?__inline">
     <link rel="stylesheet" href="include/style.css?__inline">
 </head>
-<body>
+<body class="">
 
     <div class="wait"></div>
 
-    <div class="page">
-        <section class="panel"></section>
+    <div class="page" ng-controller="TopicCtrl">
+        <section class="panel" ng-repeat="item in list">
+            <div class="c_head">
+                <img class="cicle" src="{{item.create_user.user_avatar}}" width="44" height="44">
+                <p class="u_name">{{item.create_user.user_name}}</p>
+                <p class="c_time">{{item.create_time | time}}</p>
+            </div>
+            <div class="c_img">
+                <img src="http://7x2w1i.com1.z0.glb.clouddn.com/W2015031618023685700098513">
+            </div>
+            <ul class="c_topic">
+                <li ng-repeat="ele in item.topics">
+                    <a href="?id=2">{{ele.name}}</a>
+                </li>
+            </ul>
+            <div class="c_zan">
+                <em class="before">同感</em>
+                <em class="after none">{{item.count_info.zan_count + 1}}</em>
+            </div>
+            <div class="c_foot">
+                <div class="c_watched">
+                    <em>{{item.count_info.view_count}}</em>
+                </div>
+                <a href="../content?content="><em class="c_content"></em></a>
+            </div>
+        </section>
     </div>
 
+    <link rel="import" href="../include/download/index.html?__inline">
     <link rel="import" href="../include/script.html?__inline">
+
+    <script>
+        $("title").text(location.hash);
+
+        var app = angular.module('What', [], angular.noop);
+
+        app.controller('TopicCtrl', function ($scope, $http) {
+            $scope.list = [];
+
+            $http.get('http://api.mkwhat.com/self-app//topic/contentList?topic_id=1&page=1')
+            .success(function (data) {
+                if ( ! data.data || ! data.data.contents) {
+                    get_topic_error();
+                    return;
+                }
+
+                $scope.list = data.data.contents;
+            })
+            .error(get_topic_error);
+        });
+
+        app.filter('time', function () {
+
+            return function (input) {
+
+                var time = (Date.now() - input) / 1000;
+
+                if (time <= 0) {
+                    return "刚刚";
+                }
+                if (time < 60) {
+                    return time + "秒前";
+                }
+                if (time < 60 * 60) {
+                    return Math.floor(time / 60) + "分钟前";
+                }
+                if (time < 60 * 60 * 24) {
+                    return Math.floor(time / 60) + "小时前";
+                }
+
+                return Math.floor(time / 60 / 60 / 24) + "小时前";
+            };
+        });
+
+        function get_topic_error () {
+            // body...
+        }
+    </script>
 </body>
 </html>
