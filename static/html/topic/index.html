@@ -164,8 +164,6 @@
     <link rel="import" href="../include/download/index.html?__inline">
 
     <script>
-        $("title").text(location.hash);
-
         var app = angular.module('What', [], angular.noop);
 
         app.controller('TopicCtrl', function ($scope, $http) {
@@ -179,6 +177,10 @@
                 }
 
                 $scope.list = data.data.contents;
+
+
+                var url_link = data.data.share_info.url_link;
+                $("title").text(url_link.substr(url_link.indexOf("#")));
             })
             .error(get_topic_error);
         });
@@ -193,7 +195,7 @@
                     return "刚刚";
                 }
                 if (time < 60) {
-                    return time + "秒前";
+                    return Math.floor(time) + "秒前";
                 }
                 if (time < 60 * 60) {
                     return Math.floor(time / 60) + "分钟前";

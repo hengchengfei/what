@@ -13,10 +13,11 @@ section {
     height: 100% !important;
 }
 .download_one, .download_six {
+    display: block;
     width: 90px;
     height: 35px;
     margin-left: -45px !important;
-    position: absolute;
+    position: absolute !important;
     left: 50%;
     top: 0;
     background-image: url(download.png);
