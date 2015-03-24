@@ -12,7 +12,7 @@
     <div class="wait"></div>
 
     <div class="page" ng-controller="ContentCtrl">
-        <div class="c_head none">
+        <div class="c_head">
             <img class="cicle" src="{{content.create_user.user_avatar}}" width="44" height="44">
             <p class="u_name">{{content.create_user.user_name}}</p>
             <p class="c_time">{{content.create_time | time}}</p>
@@ -44,7 +44,7 @@
                     <img src="{{content.photos[1].url_small}}">
                 </div>
             </div>
-            
+
             <!-- 好青年 ok -->
             <div class="c_img i_four" onclick="img_four(this)" ng-if="content.animation.animation_class == 'WhatAnimationOpenDoor'">
                 <div class="i_four_one">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             
-            <!-- 我为何如此美 ok -->
+            <!-- 我为何如此美 ok WhatAnimationFallen -->
             <div class="c_img i_five" onclick="img_five(this)" ng-if="content.animation.animation_class == 'WhatAnimationFallen'">
                 <div index="1">
                     <div class="three_1" style="background-image:url({{content.photos[0].url_small}});background-position: 0% 0%;"></div>
@@ -73,20 +73,30 @@
                     <div class="three_3" style="background-image:url({{content.photos[0].url_small}});background-position: 66% 0%;"></div>
                     <div class="three_4" style="background-image:url({{content.photos[0].url_small}});background-position: 99% 0%;"></div>
 
-                    <div class="three_5"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 33%;"></div>
-                    <div class="three_6"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 33%;"></div>
-                    <div class="three_7"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 33%;"></div>
-                    <div class="three_8" style="background-image:url({{content.photos[0].url_small}});background-position: 99% 33%;"></div>
+                    <div class="three_5"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 20%;"></div>
+                    <div class="three_6"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 20%;"></div>
+                    <div class="three_7"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 20%;"></div>
+                    <div class="three_8" style="background-image:url({{content.photos[0].url_small}});background-position: 99% 20%;"></div>
 
-                    <div class="three_9"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 66%;"></div>
-                    <div class="three_10"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 66%;"></div>
-                    <div class="three_11"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 66%;"></div>
-                    <div class="three_12"  style="background-image:url({{content.photos[0].url_small}});background-position: 99% 66%;"></div>
+                    <div class="three_9"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 40%;"></div>
+                    <div class="three_10"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 40%;"></div>
+                    <div class="three_11"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 40%;"></div>
+                    <div class="three_12"  style="background-image:url({{content.photos[0].url_small}});background-position: 99% 40%;"></div>
 
-                    <div class="three_13"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 99%;"></div>
-                    <div class="three_14"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 99%;"></div>
-                    <div class="three_15"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 99%;"></div>
-                    <div class="three_16"  style="background-image:url({{content.photos[0].url_small}});background-position: 99% 99%;"></div>
+                    <div class="three_13"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 60%;"></div>
+                    <div class="three_14"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 60%;"></div>
+                    <div class="three_15"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 60%;"></div>
+                    <div class="three_16"  style="background-image:url({{content.photos[0].url_small}});background-position: 99% 60%;"></div>
+
+                    <div class="three_17"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 80%;"></div>
+                    <div class="three_18"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 80%;"></div>
+                    <div class="three_19"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 80%;"></div>
+                    <div class="three_20"  style="background-image:url({{content.photos[0].url_small}});background-position: 99% 80%;"></div>
+
+                    <div class="three_21"  style="background-image:url({{content.photos[0].url_small}});background-position: 0% 100%;"></div>
+                    <div class="three_22"  style="background-image:url({{content.photos[0].url_small}});background-position: 33% 100%;"></div>
+                    <div class="three_23"  style="background-image:url({{content.photos[0].url_small}});background-position: 66% 100%;"></div>
+                    <div class="three_24"  style="background-image:url({{content.photos[0].url_small}});background-position: 99% 100%;"></div>
                 </div>
                 <div index="2">
                     <div class="three_1" style="background-image:url({{content.photos[1].url_small}});background-position: 0% 0%;"></div>
@@ -94,27 +104,37 @@
                     <div class="three_3" style="background-image:url({{content.photos[1].url_small}});background-position: 66% 0%;"></div>
                     <div class="three_4" style="background-image:url({{content.photos[1].url_small}});background-position: 99% 0%;"></div>
 
-                    <div class="three_5"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 33%;"></div>
-                    <div class="three_6"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 33%;"></div>
-                    <div class="three_7"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 33%;"></div>
-                    <div class="three_8" style="background-image:url({{content.photos[1].url_small}});background-position: 99% 33%;"></div>
+                    <div class="three_5"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 20%;"></div>
+                    <div class="three_6"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 20%;"></div>
+                    <div class="three_7"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 20%;"></div>
+                    <div class="three_8" style="background-image:url({{content.photos[1].url_small}});background-position: 99% 20%;"></div>
 
-                    <div class="three_9"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 66%;"></div>
-                    <div class="three_10"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 66%;"></div>
-                    <div class="three_11"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 66%;"></div>
-                    <div class="three_12"  style="background-image:url({{content.photos[1].url_small}});background-position: 99% 66%;"></div>
+                    <div class="three_9"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 40%;"></div>
+                    <div class="three_10"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 40%;"></div>
+                    <div class="three_11"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 40%;"></div>
+                    <div class="three_12"  style="background-image:url({{content.photos[1].url_small}});background-position: 99% 40%;"></div>
 
-                    <div class="three_13"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 99%;"></div>
-                    <div class="three_14"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 99%;"></div>
-                    <div class="three_15"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 99%;"></div>
-                    <div class="three_16"  style="background-image:url({{content.photos[1].url_small}});background-position: 99% 99%;"></div>
+                    <div class="three_13"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 60%;"></div>
+                    <div class="three_14"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 60%;"></div>
+                    <div class="three_15"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 60%;"></div>
+                    <div class="three_16"  style="background-image:url({{content.photos[1].url_small}});background-position: 99% 60%;"></div>
+
+                    <div class="three_17"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 80%;"></div>
+                    <div class="three_18"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 80%;"></div>
+                    <div class="three_19"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 80%;"></div>
+                    <div class="three_20"  style="background-image:url({{content.photos[1].url_small}});background-position: 99% 80%;"></div>
+
+                    <div class="three_21"  style="background-image:url({{content.photos[1].url_small}});background-position: 0% 100%;"></div>
+                    <div class="three_22"  style="background-image:url({{content.photos[1].url_small}});background-position: 33% 100%;"></div>
+                    <div class="three_23"  style="background-image:url({{content.photos[1].url_small}});background-position: 66% 100%;"></div>
+                    <div class="three_24"  style="background-image:url({{content.photos[1].url_small}});background-position: 99% 100%;"></div>
                 </div>
             </div>
 
             <!-- 自拍中勿打扰 -->
             <div class="c_img i_six" onclick="img_six(this)" ng-if="content.animation.animation_class == 'WhatAnimationYUGLPowDistortion'">
             </div>
-           
+
            <!-- 基情噼里啪啦 ok -->
             <div class="c_img i_seven" onclick="img_seven(this)" ng-if="content.animation.animation_class == 'WhatAnimationYUGLSwap'">
                 <div index="1">
@@ -126,16 +146,15 @@
             </div> 
         <!-- end animation -->
 
-        <ul class="c_topic none">
+        <ul class="c_topic">
             <li ng-repeat="ele in content.topics">
                 <a href="?id=2">{{ele.name}}</a>
             </li>
         </ul>
-        <div class="c_zan none">
+        <div class="c_zan">
             <em class="before">同感</em>
-            <em class="after none">{{content.count_info.zan_count + 1}}</em>
         </div>
-        <div class="c_user none">
+        <div class="c_user">
             <p>我们都有同感</p>
             <ul class="u_list">
                 <li ng-repeat="ele in content.zan_users | limitTo  : 5">
@@ -143,7 +162,7 @@
                 </li>
             </ul>
         </div>
-        <div class="c_comment none">
+        <div class="c_comment">
             <p class="co_title">评论</p>
             <ul class="co_list">
                 <li ng-repeat="ele in comment.datas">

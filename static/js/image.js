@@ -5,19 +5,17 @@ function img_one (ele) {
 
     move(first)
         .set('opacity', 1 - $(first).css("opacity"))
-        .duration('2s')
+        .duration('1s')
         .end();
 
     move(second)
         .set('opacity', 1 - $(second).css("opacity"))
-        .duration('2s')
+        .duration('1s')
         .end();
 }
 function img_two (ele) {
     var first = $(ele).find("div[index='1']")[0],
         second = $(ele).find("div[index='2']")[0];
-
-    $(first).ripples('drop', Number.parseInt($(first).css("width")) / 2, Number.parseInt($(first).css("height")) / 2, 20, 0.4);
 
     $(second).css("opacity", 1);
     move(first)
@@ -26,7 +24,7 @@ function img_two (ele) {
         .end(function () {
 
             $(first).ripples('destroy');
-            $(first).ripples({resolution: 128, dropRadius: 20, perturbance: 0.4,});
+            $(first).ripples({resolution: 64, dropRadius: 20, perturbance: 0.04});
 
             $(first).attr("index", '2');
             $(first).css("z-index", 10);
@@ -51,14 +49,14 @@ function img_three (ele) {
         .scaleX(0.45)
         .scaleY(0.8)
         .rotateY(90)
-        .duration('1.5s')
+        .duration('0.5s')
         .end();
 
     move(second)
         .scaleX(0.45)
         .scaleY(0.8)
         .rotateY(-90)
-        .duration('1.5s')
+        .duration('0.5s')
         .end(function() {
             $(second).css("opacity", 1);
 
@@ -66,7 +64,7 @@ function img_three (ele) {
                 .scaleX(1)
                 .scaleY(1)
                 .rotateY(0)
-                .duration('1.5s')
+                .duration('0.5s')
                 .end(function() {
 
                     $(first).attr("index", '2');
@@ -96,7 +94,7 @@ function img_four (ele) {
 
     move(first)
         .rotateY(-120)
-        .duration('1.5s')
+        .duration('1s')
         .end(function (argument) {
             $(first).css("z-index", 10);
             $(second).css("z-index", 11);
@@ -109,7 +107,7 @@ function img_four (ele) {
 
     move(third)
         .rotateY(120)
-        .duration('1.5s')
+        .duration('1s')
         .end(function() {
             $(third).css("z-index", 10);
             $(fourth).css("z-index", 11);
@@ -158,7 +156,9 @@ function img_five (ele) {
         move(divs[current--]).ease('in-out').set("margin-top", "100%").end(add_one);
 
         if (current > 0) {
-            setTimeout(move_x(divs, current), 1000);
+            setTimeout(function() {
+                move_x(divs, current);
+            }, 100);
         };
     })(divs, divs.length - 1);
 }
@@ -180,14 +180,14 @@ function img_seven (ele) {
     move(first)
         .rotateY(80)
         .scale(0.8)
-        .duration('1.5s')
+        .duration('1s')
         .end();
 
     move(second)
         .rotateY(-80)
-        .duration('0.3s')
+        .duration('0.2s')
         .scale(0.7)
-        .duration('0.3s')
+        .duration('0.2s')
         .end(function () {
 
             css($(first), "z-index", "10");
@@ -198,7 +198,7 @@ function img_seven (ele) {
                 move(second)
                     .rotateY(0)
                     .scale(1)
-                    .duration('1.5s')
+                    .duration('0.8s')
                     .end(function () {
                         // over
                         $(first).attr("index", 2);
@@ -211,7 +211,6 @@ function img_seven (ele) {
                     });
             }, 1);
     });
-
 }
 
 function css (ele, key, value) {

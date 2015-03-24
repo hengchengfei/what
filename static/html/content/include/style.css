@@ -28,12 +28,12 @@
 }
 .c_time {
     font-size: 12px;
-    color: rgb(153, 153, 153);
+    color: rgb(153,` 153, 153);
 }
 .c_img {
     position: relative;
 }
-.c_img :after {
+.c_img::after {
     content: " ";
     display: block;
     width: 38px;
@@ -43,6 +43,7 @@
     right: 15px;
     background-image: url(play.png);
     background-size: 100%;
+    z-index: 20;
 }
 .c_img * {
     width: 100%;
@@ -150,7 +151,7 @@
 }
 .i_five div div {
     width: 25%;
-    height: 25%;
+    height: 16.7%;
     background-size: 400%, 400%;
     float: left;
 }

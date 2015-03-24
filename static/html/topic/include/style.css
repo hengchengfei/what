@@ -50,7 +50,7 @@ body {
 .c_img {
     position: relative;
 }
-.c_img :after {
+.c_img::after {
     content: " ";
     display: block;
     width: 38px;
@@ -60,6 +60,7 @@ body {
     right: 15px;
     background-image: url(play.png);
     background-size: 100%;
+    z-index: 20;
 }
 .c_img * {
     width: 100%;
