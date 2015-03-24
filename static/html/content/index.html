@@ -12,7 +12,7 @@
     <div class="wait"></div>
 
     <div class="page" ng-controller="ContentCtrl">
-        <div class="c_head">
+        <div class="c_head none">
             <img class="cicle" src="{{content.create_user.user_avatar}}" width="44" height="44">
             <p class="u_name">{{content.create_user.user_name}}</p>
             <p class="c_time">{{content.create_time | time}}</p>
@@ -20,7 +20,7 @@
 
         <!-- start animation -->
             <!-- 我是时尚 ok -->
-            <div class="c_img i_one" onclick="img_one(this)" ng-if="content.animation.id == 2">
+            <div class="c_img i_one" onclick="img_one(this)" ng-if="content.animation.animation_class == 'WhatAnimationEraseInOut'">
                 <div index="1">
                     <img src="{{content.photos[0].url_small}}">
                 </div>
@@ -30,11 +30,13 @@
             </div>
 
             <!-- 不吃药打死你 -->
-            <div class="c_img i_two" onclick="img_two(this)" ng-if="content.animation.id == 5">
+            <div class="c_img i_two" onclick="img_two(this)" ng-if="content.animation.animation_class == 'WhatAnimationRippleEffect'">
+                <div index="1" data-image="url({{content.photos[0].url_small}});"></div>
+                <div index="2" data-image="url({{content.photos[1].url_small}});"></div>
             </div>
 
             <!-- 萌化～ ok -->
-            <div class="c_img i_three" onclick="img_three(this)" ng-if="content.animation.id == 3">
+            <div class="c_img i_three" onclick="img_three(this)" ng-if="content.animation.animation_class == 'WhatAnimationOglFlip'">
                 <div index="1">
                     <img src="{{content.photos[0].url_small}}">
                 </div>
@@ -44,7 +46,7 @@
             </div>
             
             <!-- 好青年 ok -->
-            <div class="c_img i_four" onclick="img_four(this)" ng-if="content.animation.id == 7">
+            <div class="c_img i_four" onclick="img_four(this)" ng-if="content.animation.animation_class == 'WhatAnimationOpenDoor'">
                 <div class="i_four_one">
                     <div index="1">
                         <div style="background-image: url({{content.photos[0].url_small}});"></div>
@@ -64,7 +66,7 @@
             </div>
             
             <!-- 我为何如此美 ok -->
-            <div class="c_img i_five" onclick="img_five(this)" ng-if="content.animation.id == 1">
+            <div class="c_img i_five" onclick="img_five(this)" ng-if="content.animation.animation_class == 'WhatAnimationFallen'">
                 <div index="1">
                     <div class="three_1" style="background-image:url({{content.photos[0].url_small}});background-position: 0% 0%;"></div>
                     <div class="three_2" style="background-image:url({{content.photos[0].url_small}});background-position: 33% 0%;"></div>
@@ -109,12 +111,12 @@
                 </div>
             </div>
 
-            <!-- 不吃药打死你 -->
-            <div class="c_img i_six" onclick="img_six(this)" ng-if="content.animation.id == 5">
+            <!-- 自拍中勿打扰 -->
+            <div class="c_img i_six" onclick="img_six(this)" ng-if="content.animation.animation_class == 'WhatAnimationYUGLPowDistortion'">
             </div>
            
            <!-- 基情噼里啪啦 ok -->
-            <div class="c_img i_seven" onclick="img_seven(this)" ng-if="content.animation.id == 8">
+            <div class="c_img i_seven" onclick="img_seven(this)" ng-if="content.animation.animation_class == 'WhatAnimationYUGLSwap'">
                 <div index="1">
                     <img src="{{content.photos[0].url_small}}">
                 </div>
@@ -124,16 +126,16 @@
             </div> 
         <!-- end animation -->
 
-        <ul class="c_topic">
+        <ul class="c_topic none">
             <li ng-repeat="ele in content.topics">
                 <a href="?id=2">{{ele.name}}</a>
             </li>
         </ul>
-        <div class="c_zan">
+        <div class="c_zan none">
             <em class="before">同感</em>
             <em class="after none">{{content.count_info.zan_count + 1}}</em>
         </div>
-        <div class="c_user">
+        <div class="c_user none">
             <p>我们都有同感</p>
             <ul class="u_list">
                 <li ng-repeat="ele in content.zan_users | limitTo  : 5">
@@ -141,7 +143,7 @@
                 </li>
             </ul>
         </div>
-        <div class="c_comment">
+        <div class="c_comment none">
             <p class="co_title">评论</p>
             <ul class="co_list">
                 <li ng-repeat="ele in comment.datas">
@@ -175,9 +177,13 @@
 
                 $("title").text("\"" + data.data.create_user.user_name + "\"" + "的作品");
 
-                if (data.data.zan_users.length == 0) {
+                if (data.data.zan_users && data.data.zan_users.length == 0) {
                     $(".c_user").addClass("none");
                 }
+
+                setTimeout(function() {
+                    $(".i_two div").ripples({resolution: 128, dropRadius: 20, perturbance: 0.4,});
+                }, 100);
             })
             .error(get_content_error);
 

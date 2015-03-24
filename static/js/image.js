@@ -14,7 +14,27 @@ function img_one (ele) {
         .end();
 }
 function img_two (ele) {
-    // 不吃药打死你
+    var first = $(ele).find("div[index='1']")[0],
+        second = $(ele).find("div[index='2']")[0];
+
+    $(first).ripples('drop', Number.parseInt($(first).css("width")) / 2, Number.parseInt($(first).css("height")) / 2, 20, 0.4);
+
+    $(second).css("opacity", 1);
+    move(first)
+        .set("opacity", 0)
+        .duration('1s')
+        .end(function () {
+
+            $(first).ripples('destroy');
+            $(first).ripples({resolution: 128, dropRadius: 20, perturbance: 0.4,});
+
+            $(first).attr("index", '2');
+            $(first).css("z-index", 10);
+
+            $(second).attr("index", '1');
+            $(second).css("z-index", 11);
+        });
+
 }
 
 function img_three (ele) {
@@ -146,6 +166,7 @@ function img_five (ele) {
 function img_six (ele) {
     // 自拍中勿打扰
 }
+
 function img_seven (ele) {
     // 基情噼里啪啦
     var first = $(ele).find("div[index=1]")[0],
