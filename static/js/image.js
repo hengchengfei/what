@@ -71,7 +71,7 @@ function img_four (ele) {
 
     if ($(ele).attr("status") == 1) 
         return;
-    else 
+    else
         $(ele).attr("status", 1);
 
     move(first)
@@ -150,6 +150,11 @@ function img_seven (ele) {
     // 基情噼里啪啦
     var first = $(ele).find("div[index=1]")[0],
         second = $(ele).find("div[index=2]")[0];
+
+    if ($(ele).attr("status") == 1) 
+        return;
+    else
+        $(ele).attr("status", 1);
 
     move(first)
         .rotateY(80)
