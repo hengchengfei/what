@@ -32,8 +32,8 @@
 
                 <!-- 萌化～ -->
                 <div class="c_img i_two" onclick="img_two(this)" ng-if="content.animation.animation_class == 'WhatAnimationRippleEffect'">
-                    <div index="1" data-image="url({{content.photos[0].url_middle}});"></div>
-                    <div index="2" data-image="url({{content.photos[1].url_middle}});"></div>
+                    <div index="1" data-image="url({{item.photos[0].url_middle}});"></div>
+                    <div index="2" data-image="url({{item.photos[1].url_middle}});"></div>
                 </div>
 
                 <!-- 不吃药打死你 ok -->
@@ -67,7 +67,7 @@
                 </div> 
                 
                 <!-- 我为何如此美 ok -->
-                <div class="c_img i_five" onclick="img_five(this)" ng-if="item.animation.id == animation_class == 'WhatAnimationFallen'">
+                <div class="c_img i_five" onclick="img_five(this)" ng-if="item.animation.animation_class == animation_class == 'WhatAnimationFallen'">
                     <div index="1">
                         <div class="three_1" style="background-image:url({{item.photos[0].url_middle}});background-position: 0% 0%;"></div>
                         <div class="three_2" style="background-image:url({{item.photos[0].url_middle}});background-position: 33% 0%;"></div>
