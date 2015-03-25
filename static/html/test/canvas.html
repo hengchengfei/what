@@ -11,11 +11,7 @@
 
 <script type="text/javascript">
 
-   function draw_text(ele, width, height) {
-
-        var img_url = $(ele).attr("data-url"),
-            img_text = $(ele).attr("data-text"),
-            img_type = $(ele).attr("data-type");
+   function draw_text(img_url, img_text, img_type, width, height) {
 
         if ( ! $("#canvas").length) {
             $("body").prepend("<canvas id=\"canvas\"></canvas>");
@@ -55,7 +51,10 @@
         img.src = img_url;
    }
 
-   draw_text($("img"), 500, 500);
+   var url = "http://127.0.0.1:8080/assets/img/test/include/W2015032421063014700089536-middle.jpg";
+   var text = "测试文字";
+
+   draw_text(url, text, 0, 500, 500);
 
 </script>
 </body>
