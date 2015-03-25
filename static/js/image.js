@@ -225,7 +225,7 @@ function render_text (ctx, text, type, width, height) {
 
         if (type == 0) {
                 var margin_top = 5,
-                      margin_bottom = 5;
+                    margin_bottom = 5;
 
                 ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
                 ctx.fillRect(0, height - margin_top - margin_bottom - text_height, width, height);

@@ -156,6 +156,8 @@
     float: left;
 }
 .i_seven {
+    overflow: hidden;
+
     perspective: 100em;
     -webkit-perspective: 100em;
     -o-perspective: 100em;

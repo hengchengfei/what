@@ -7,7 +7,7 @@
     <link rel="import" href="../include/link.html?__inline">
     <link rel="stylesheet" href="include/style.css?__inline">
 </head>
-<body class="">
+<body>
 
     <div class="wait"></div>
 
@@ -213,8 +213,7 @@
                                     $scope.list[id].photos[key] = item;
                                     $scope.$digest()
                             }
-                            // img.src = item.url_middle;
-                            img.src = "http://127.0.0.1:8080/assets/img/test/include/W2015032420055770100048301-middle.jpg";
+                            img.src = item.url_middle;
                     });
                 });
                 /* end add text to image */
