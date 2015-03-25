@@ -213,42 +213,52 @@ function img_seven (ele) {
     });
 }
 
-function draw_text(img_url, img_text, img_type, width, height) {
+function render_text (ctx, text, type, width, height) {
+        var text_list = split_text(ctx, text, width - 15);
+        if (text_list.length ==0 ) return;
 
-     if ( ! $("#canvas").length) {
-         $("body").prepend("<canvas id=\"canvas\"></canvas>");
-     }
+        ctx.font = "normal 16px microsoft yahei";
+        ctx.textBaseline = 'middle';
 
-     var cvs = $("#canvas")[0],
-         ctx = cvs.getContext("2d"),
-         img = new Image();
+        var font_height = 16 + 2,
+              text_height = text_list.length * font_height;
 
-     cvs.width = width;
-     cvs.height = height;
+        if (type == 0) {
+                var margin_top = 5,
+                      margin_bottom = 5;
 
-     ctx.clearRect(0, 0, width, height);
-     ctx.font = "normal 16px microsoft yahei";
+                ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+                ctx.fillRect(0, height - margin_top - margin_bottom - text_height, width, height);
 
-     img.onload = function () {
-         ctx.drawImage(img, 0, 0, width, height);
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillStyle = "white";
 
-         if (img_type === 0) {
+                for (var i = text_list.length - 1; i >= 0; i--) {
+                        ctx.fillText(text_list[i], 5, height - margin_bottom - text_height + font_height * i);
+                };
+        } else {
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = "white";
 
-             ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
-             ctx.fillRect(0, height - 40, width, height);
+                for (var i = text_list.length - 1; i >= 0; i--) {
+                    ctx.fillText(text_list[i], width / 2, (height - text_height) / 2  + font_height * i);
+                };
+        }
 
-             ctx.textAlign = 'left';
-             ctx.textBaseline = 'middle';
-             ctx.fillStyle = "white";
-             ctx.fillText(img_text, 5, height - 20);
-         } else {
+}
 
-             ctx.textAlign = 'center';
-             ctx.textBaseline = 'middle';
-             ctx.fillStyle = "white";
-             ctx.fillText(img_text, width / 2, height / 2);
-         }
-         return cvs.toDataURL("image/png");
-     }
-     img.src = img_url;
+function split_text (ctx, text, width) {
+        var result = [], str = "", length = 0;
+
+        for (var i = 0; i < text.length; i++) {
+                str += text[i];
+                if (ctx.measureText(str).width >= width || (i == (text.length - 1) && str != "")) {
+                        result.push(str);
+                        str = "";
+                }
+        }
+
+        return result;
 }
