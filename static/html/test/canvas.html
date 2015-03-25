@@ -7,7 +7,7 @@
  </head>
 <body>
 
-<img data-url="http://127.0.0.1:8080/assets/img/test/include/W2015032421063014700089536-middle.jpg" data-text="我与闺蜜的日常">
+<img data-url="http://127.0.0.1:8080/assets/img/test/include/W2015032421063014700089536-middle.jpg" data-text="我与闺蜜的日常" data-type="2">
 
 <script type="text/javascript">
 
@@ -29,21 +29,27 @@
         cvs.height = height;
 
         ctx.clearRect(0, 0, width, height);
+        ctx.font = "normal 16px microsoft yahei";
 
         img.onload = function () {
             ctx.drawImage(img, 0, 0, width, height);
 
-            ctx.font = "normal 16px microsoft yahei";
-            ctx.globalCompositeOperation = "source-over";
+            if (img_type === 0) {
 
-            ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
-            ctx.fillRect(0, height - 40, width, height);
+                ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+                ctx.fillRect(0, height - 40, width, height);
 
-            ctx.textAlign = 'left';
-            ctx.textBaseline = 'middle';
-            ctx.fillStyle = "white";
-            ctx.fillText("界记教历史", 5, height - 20);
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = "white";
+                ctx.fillText("界记教历史", 5, height - 20);
+            } else {
 
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = "white";
+                ctx.fillText("界记教历史", width / 2, height / 2);
+            }
             return cvs.toDataURL("image/png");
         }
         img.src = img_url;
