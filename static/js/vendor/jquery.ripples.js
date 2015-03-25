@@ -114,7 +114,6 @@
 				canvas.height = that.$el.innerHeight();
 			}
 		});
-		console.log(canvas.width);
 
 		// this.$el.on('mousemove.ripples', function(e) {
 		// 	if (that.visible && that.running) that.dropAtMouse(e, that.dropRadius, 0.01);

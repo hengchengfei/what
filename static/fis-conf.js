@@ -36,7 +36,7 @@ fis.config.set('roadmap', {
         reg: /\/html\/(.*\.html)/,
         release : '/$1'
     }, {
-        reg: /\/html\/(.*\.(?:jpg|png))/i,
+        reg: /\/html\/(.*\.(?:jpg|jpeg|png))/i,
         release: '/assets/img/$1',
     }, {
         reg: /\/html\/(.*\.css)/i,
@@ -45,7 +45,7 @@ fis.config.set('roadmap', {
         reg: /\/html\/(.*\.js)/i,
         release: '/assets/js/$1',
     }, {
-        reg: /\/img\/(.*\.(:?jpg|png))/i,
+        reg: /\/img\/(.*\.(:?jpg|jpeg|png))/i,
         release: '/assets/img/$1',
     }, {
         reg: /\/css\/(.*\.css)/i,

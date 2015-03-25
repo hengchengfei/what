@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="utf-8">
+    <title>Canvas demo</title>
+    <script src="http://127.0.0.1:8080/assets/js/vendor/jquery.min.js"></script>
+ </head>
+<body>
+
+<img data-url="http://127.0.0.1:8080/assets/img/test/include/W2015032421063014700089536-middle.jpg" data-text="我与闺蜜的日常">
+
+<script type="text/javascript">
+
+   function draw_text(ele, width, height) {
+
+        var img_url = $(ele).attr("data-url"),
+            img_text = $(ele).attr("data-text"),
+            img_type = $(ele).attr("data-type");
+
+        if ( ! $("#canvas").length) {
+            $("body").prepend("<canvas id=\"canvas\"></canvas>");
+        }
+
+        var cvs = $("#canvas")[0],
+            ctx = cvs.getContext("2d"),
+            img = new Image();
+
+        cvs.width = width;
+        cvs.height = height;
+
+        ctx.clearRect(0, 0, width, height);
+
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0, width, height);
+
+            ctx.font = "normal 16px microsoft yahei";
+            ctx.globalCompositeOperation = "source-over";
+
+            ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+            ctx.fillRect(0, height - 40, width, height);
+
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = "white";
+            ctx.fillText("界记教历史", 5, height - 20);
+
+            return cvs.toDataURL("image/png");
+        }
+        img.src = img_url;
+   }
+
+   draw_text($("img"), 500, 500);
+
+</script>
+</body>
+</html>

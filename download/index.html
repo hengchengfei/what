@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="/assets/css/common/ie-hack.css">
 <![endif]-->
     <link type="text/css" rel="stylesheet" href="/assets/css/vendor/reveal.css">
-<style>.slides{width:auto!important;height:auto!important;position:absolute;top:0;right:0;bottom:0;left:0}section{padding:0!important;width:100%!important;height:100%!important}.download_one,.download_six{width:90px;height:35px;margin-left:-45px!important;position:absolute;left:50%;top:0;background-image:url(/assets/img/download/include/download_e301cef.png);background-repeat:no-repeat;background-size:100%}.download_one{top:39%}.download_six{top:32%}.erweima{width:100%;height:25%;position:absolute;top:65%;font-size:15px!important;line-height:17px!important;color:#666}.erweima p{position:relative;top:3px}.slides>section>section:after{display:block;width:33px;height:36px;display:absolute;top:0;left:0;background-color:#000}.more{position:relative;top:-50px;height:36px;background-image:url(/assets/img/download/include/more_3f07373.png);background-size:33px;background-repeat:no-repeat;background-position:center}</style>
+<style>.slides{width:auto!important;height:auto!important;position:absolute;top:0;right:0;bottom:0;left:0}section{padding:0!important;width:100%!important;height:100%!important}.download_one,.download_six{display:block;width:90px;height:35px;margin-left:-45px!important;position:absolute!important;left:50%;top:0;background-image:url(/assets/img/download/include/download_e301cef.png);background-repeat:no-repeat;background-size:100%}.download_one{top:39%}.download_six{top:32%}.erweima{width:100%;height:25%;position:absolute;top:65%;font-size:15px!important;line-height:17px!important;color:#666}.erweima p{position:relative;top:3px}.slides>section>section:after{display:block;width:33px;height:36px;display:absolute;top:0;left:0;background-color:#000}.more{position:relative;top:-50px;height:36px;background-image:url(/assets/img/download/include/more_3f07373.png);background-size:33px;background-repeat:no-repeat;background-position:center}</style>
 </head>
 <body>
     <div class="reveal">
@@ -26,7 +26,7 @@
             <section>
                 <section>
                     <img src="/assets/img/download/include/one_9cf9ea0.png" height="100%">
-                    <div class="download_one"></div>
+                    <a class="download_one" href="javascript:;"></a>
                     <div class="more navigate-down"></div>
                 </section>
                 <section>
@@ -47,7 +47,7 @@
                 </section>
                 <section>
                     <img src="/assets/img/download/include/six_09b7706.png" height="100%">
-                    <div class="download_six"></div>
+                    <a class="download_six" href="javascript:;"></a>
                     <div class="erweima">
                         <p>长按二维码来我家做客<br>公众号：mandian</p>
                         <img src="/assets/img/download/include/erweima_7f3e6b3.png" height="70%">
@@ -57,9 +57,45 @@
         </div>
     </div>
 
+    <div class="text none" style="position: absolute;top: 0;right: 0;bottom: 0;left: 0;background-color: black; opacity: 0.6;z-index: 99;">
+        <img src="/assets/img/download/include/text_d177543.png" style="width:255px; position:absolute; top:0; right:10px;">
+    </div>
+
     <script type="text/javascript" charset="utf-8" src="/assets/js/vendor/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/assets/js/vendor/reveal.js"></script>
 <script>
+    $(".text").on("click", function () {
+        $
+        (this).toggleClass("none");
+    });
+    $("a").on("click", function () {
+        if ( ! navigator.userAgent.match(/Mac OS X/i)) {
+            alert("目前只支持ios版本！");
+            return;
+        }
+
+        if (navigator.userAgent.match(/MicroMessenger/i)) {
+            $("text").removeClass("none");
+        } else {
+            setTimeout(function () {
+                    location.href = "https://itunes.apple.com/app/id958445502?mt=8&l=zh";
+            }, 1000);
+        }
+    });
+
+
+    if (navigator.userAgent.match(/Mac OS X/i)) {
+        if (navigator.userAgent.match(/MicroMessenger/i)) {
+            // $("#download a").attr("href", "http://a.app.qq.com/o/simple.jsp?pkgname=com.self.what");
+        } else {
+            $("a").attr("href", "https://itunes.apple.com/app/id958445502?mt=8&l=zh");
+        }
+    }
+
+    $(".text").on("click", function () {
+        $(this).toggleClass("none");
+    });
+
     Reveal.initialize({
         width: window.screen.availWidth,
         height: window.screen.availHeight,
