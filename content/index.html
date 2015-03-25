@@ -26,8 +26,8 @@
     <div class="page" ng-controller="ContentCtrl">
         <div class="c_head">
             <img class="cicle" src="{{content.create_user.user_avatar}}" width="44" height="44">
-            <p class="u_name">{{content.create_user.user_name}}</p>
-            <p class="c_time">{{content.create_time | time}}</p>
+            <p class="u_name" ng-bind="content.create_user.user_name"></p>
+            <p class="c_time" ng-bind="content.create_time | time"></p>
         </div>
 
         <!-- start animation -->
@@ -160,7 +160,7 @@
 
         <ul class="c_topic">
             <li ng-repeat="ele in content.topics">
-                <a href="?id=2">{{ele.name}}</a>
+                <a href="?id=2" ng-bind="ele.name"></a>
             </li>
         </ul>
         <div class="c_zan">
@@ -180,8 +180,8 @@
                 <li ng-repeat="ele in comment.datas">
                     <img class="cicle" src="{{ele.create_user.user_avatar}}" width="50px" height="50px">
                     <p class="co_name">Evie</p>
-                    <p class="co_content">{{ele.text}}</p>
-                    <p class="co_time">{{ele.create_time | time}}</p>
+                    <p class="co_content" ng-bind="ele.text"></p>
+                    <p class="co_time" ng-bind="ele.create_time | time"></p>
                 </li>
             </ul>
         </div>
@@ -266,20 +266,6 @@
 
                                     render_text(ctx, item.text, item.type, cvs.width, cvs.height);
 
-                                    // if (item.type == 0) {
-                                    //         ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
-                                    //         ctx.fillRect(0, cvs.height - 40, cvs.width, cvs.height);
-
-                                    //         ctx.textAlign = 'left';
-                                    //         ctx.textBaseline = 'middle';
-                                    //         ctx.fillStyle = "white";
-                                    //         ctx.fillText(item.text, 5, cvs.height - 20);
-                                    // } else {
-                                    //         ctx.textAlign = 'center';
-                                    //         ctx.textBaseline = 'middle';
-                                    //         ctx.fillStyle = "white";
-                                    //         ctx.fillText(item.text, cvs.width / 2, cvs.height / 2);
-                                    // }
                                     item.url_middle = cvs.toDataURL("image/png");
                                     $scope.content.photos[key] = item;
                                     $scope.$digest()
@@ -316,6 +302,8 @@
         app.filter('time', function () {
 
                 return function (input) {
+
+                    if ( ! input) return "";
 
                     var time = (Date.now() - input) / 1000;
 
