@@ -213,7 +213,7 @@
                                     $scope.list[id].photos[key] = item;
                                     $scope.$digest()
                             }
-                            img.src = item.url_middle;
+                            img.src = item.url_middle.replace("img.mkwhat.com", "www.mkwhat.com");
                     });
                 });
                 /* end add text to image */
