@@ -15,8 +15,8 @@
         <section class="panel" ng-repeat="item in list">
             <div class="c_head">
                 <img class="cicle" src="{{item.create_user.user_avatar}}" width="44" height="44">
-                <p class="u_name">{{item.create_user.user_name}}</p>
-                <p class="c_time">{{item.create_time | time}}</p>
+                <p class="u_name" ng-bind="item.create_user.user_name"></p>
+                <p class="c_time" ng-bind="item.create_time | time"></p>
             </div>
 
             <!-- start animation -->
@@ -145,7 +145,7 @@
 
             <ul class="c_topic">
                 <li ng-repeat="ele in item.topics">
-                    <a href="?id={{ele.id}}">{{ele.name}}</a>
+                    <a href="?id={{ele.id}}" ng-bind="ele.name"></a>
                 </li>
             </ul>
             <div class="c_zan">
@@ -228,6 +228,8 @@
         app.filter('time', function () {
 
             return function (input) {
+
+                if ( ! input) return "";
 
                 var time = (Date.now() - input) / 1000;
 
