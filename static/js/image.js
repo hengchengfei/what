@@ -150,10 +150,10 @@ function img_five (ele) {
 
     (function move_x (divs, current) {
 
-        move(divs[current--]).ease('snap').set("margin-top", "100%").end(add_one);
-        move(divs[current--]).ease('in').set("margin-top", "100%").end(add_one);
-        move(divs[current--]).ease('out').set("margin-top", "100%").end(add_one);
-        move(divs[current--]).ease('in-out').set("margin-top", "100%").end(add_one);
+        move(divs[current--]).ease('snap').set("margin-top", "100%").duration('0.5s').end(add_one);
+        move(divs[current--]).ease('in').set("margin-top", "100%").duration('0.5s').end(add_one);
+        move(divs[current--]).ease('out').set("margin-top", "100%").duration('0.5s').end(add_one);
+        move(divs[current--]).ease('in-out').set("margin-top", "100%").duration('0.5s').end(add_one);
 
         if (current > 0) {
             setTimeout(function() {
