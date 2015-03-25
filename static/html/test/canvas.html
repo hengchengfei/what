@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
 
-   function draw_text(img_url, img_text, img_type, width, height) {
+function draw_text(img_url, img_text, img_type, width, height) {
 
         if ( ! $("#canvas").length) {
             $("body").prepend("<canvas id=\"canvas\"></canvas>");
@@ -28,33 +28,34 @@
         ctx.font = "normal 16px microsoft yahei";
 
         img.onload = function () {
-            ctx.drawImage(img, 0, 0, width, height);
+                ctx.drawImage(img, 0, 0, width, height);
 
-            if (img_type === 0) {
+                if (img_type === 0) {
 
-                ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
-                ctx.fillRect(0, height - 40, width, height);
+                        ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+                        ctx.fillRect(0, height - 40, width, height);
 
-                ctx.textAlign = 'left';
-                ctx.textBaseline = 'middle';
-                ctx.fillStyle = "white";
-                ctx.fillText("界记教历史", 5, height - 20);
-            } else {
+                        ctx.textAlign = 'left';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillStyle = "white";
+                        ctx.fillText(img_text, 5, height - 20);
+                } else {
 
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillStyle = "white";
-                ctx.fillText("界记教历史", width / 2, height / 2);
-            }
-            return cvs.toDataURL("image/png");
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillStyle = "white";
+                        ctx.fillText(img_text, width / 2, height / 2);
+                }
+                var result = cvs.toDataURL("image/png");
+                console.log(result);
         }
         img.src = img_url;
-   }
+}
 
-   var url = "http://127.0.0.1:8080/assets/img/test/include/W2015032421063014700089536-middle.jpg";
-   var text = "测试文字";
+var url = "http://127.0.0.1:8080/assets/img/test/include/W2015032420055770100048301-middle.jpg";
+var text = "测试文字";
 
-   draw_text(url, text, 0, 500, 500);
+draw_text(url, text, 0, 300, 300);
 
 </script>
 </body>

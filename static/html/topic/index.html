@@ -178,6 +178,46 @@
 
                 $scope.list = data.data.contents;
 
+                /* start add text to image */
+                if ( ! $("#canvas").length) {
+                    $("body").prepend("<canvas id=\"canvas\" style=\"display: none;\"></canvas>");
+                }
+                var cvs = $("#canvas")[0], ctx = cvs.getContext("2d");
+                angular.forEach($scope.list, function (cont, id) {
+                    angular.forEach(cont.photos, function (item, key) {
+                            var img = new Image();
+
+                            img.onload = function () {
+                                    cvs.width = img.width;
+                                    cvs.height = img.height;
+
+                                    ctx.clearRect(0, 0, cvs.width, cvs.height);
+                                    ctx.font = "normal 16px microsoft yahei";
+
+                                    ctx.drawImage(img, 0, 0, cvs.width, cvs.height);
+
+                                    if (item.type == 0) {
+                                            ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+                                            ctx.fillRect(0, cvs.height - 40, cvs.width, cvs.height);
+                                            ctx.textAlign = 'left';
+                                            ctx.textBaseline = 'middle';
+                                            ctx.fillStyle = "white";
+                                            ctx.fillText(item.text, 5, cvs.height - 20);
+                                    } else {
+                                            ctx.textAlign = 'center';
+                                            ctx.textBaseline = 'middle';
+                                            ctx.fillStyle = "white";
+                                            ctx.fillText(item.text, cvs.width / 2, cvs.height / 2);
+                                    }
+                                    item.url_middle = cvs.toDataURL("image/png");
+                                    $scope.list[id].photos[key] = item;
+                                    $scope.$digest()
+                            }
+                            // img.src = item.url_middle;
+                            img.src = "http://127.0.0.1:8080/assets/img/test/include/W2015032420055770100048301-middle.jpg";
+                    });
+                });
+                /* end add text to image */
 
                 var url_link = data.data.share_info.url_link;
                 $("title").text(url_link.substr(url_link.indexOf("#")));

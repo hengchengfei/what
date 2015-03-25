@@ -69,11 +69,11 @@ function img_three (ele) {
 
                     $(first).attr("index", '2');
                     $(first).css("opacity", 0);
-                    css($(first), "-webkit-transform", "none");
+                    $(first).css("-webkit-transform", "none");
 
                     $(second).attr("index", '1');
                     $(second).css("opacity", 1);
-                    css($(second), "-webkit-transform", "none");
+                    $(second).css("-webkit-transform", "none");
 
                     $(ele).attr("status", 0);
                 });
@@ -102,7 +102,7 @@ function img_four (ele) {
             $(first).attr("index", 2);
             $(second).attr("index", 1);
 
-            css($(first), "-webkit-transform", "none");
+            $(first).css("-webkit-transform", "none");
         });
 
     move(third)
@@ -115,7 +115,7 @@ function img_four (ele) {
             $(third).attr("index", 4);
             $(fourth).attr("index", 3);
 
-            css($(third), "-webkit-transform", "none");
+            $(third).css("-webkit-transform", "none");
         });
 
     setTimeout(function() {
@@ -190,9 +190,9 @@ function img_seven (ele) {
         .duration('0.2s')
         .end(function () {
 
-            css($(first), "z-index", "10");
-            css($(second), "z-index", "11");
-            css($(second), "opacity", 1);
+            $(first).css("z-index", "10");
+            $(second).css("z-index", "11");
+            $(second).css("opacity", 1);
 
             setTimeout(function () {
                 move(second)
@@ -204,8 +204,8 @@ function img_seven (ele) {
                         $(first).attr("index", 2);
                         $(second).attr("index", 1);
 
-                        css($(first), "opacity", "0");
-                        css($(first), "-webkit-transform", "none");
+                        $(first).css("opacity", 0);
+                        $(first).css("-webkit-transform", "none");
 
                         $(ele).attr("status", 0);
                     });
@@ -213,10 +213,42 @@ function img_seven (ele) {
     });
 }
 
-function css (ele, key, value) {
-    var map = [""];
+function draw_text(img_url, img_text, img_type, width, height) {
 
-    map.forEach(function (item) {
-        ele.css(item + key, value);
-    });
+     if ( ! $("#canvas").length) {
+         $("body").prepend("<canvas id=\"canvas\"></canvas>");
+     }
+
+     var cvs = $("#canvas")[0],
+         ctx = cvs.getContext("2d"),
+         img = new Image();
+
+     cvs.width = width;
+     cvs.height = height;
+
+     ctx.clearRect(0, 0, width, height);
+     ctx.font = "normal 16px microsoft yahei";
+
+     img.onload = function () {
+         ctx.drawImage(img, 0, 0, width, height);
+
+         if (img_type === 0) {
+
+             ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+             ctx.fillRect(0, height - 40, width, height);
+
+             ctx.textAlign = 'left';
+             ctx.textBaseline = 'middle';
+             ctx.fillStyle = "white";
+             ctx.fillText(img_text, 5, height - 20);
+         } else {
+
+             ctx.textAlign = 'center';
+             ctx.textBaseline = 'middle';
+             ctx.fillStyle = "white";
+             ctx.fillText(img_text, width / 2, height / 2);
+         }
+         return cvs.toDataURL("image/png");
+     }
+     img.src = img_url;
 }
