@@ -20,6 +20,7 @@
             </div>
 
             <!-- start animation -->
+                <!-- 我是时尚 ok -->
                 <div class="c_img i_one" onclick="img_one(this)" ng-if="item.animation.animation_class == 'WhatAnimationRippleEffect'">
                     <div index="1">
                         <img src="{{item.photos[0].url_middle}}">
@@ -29,13 +30,14 @@
                     </div>
                 </div>
 
-                <!-- 不吃药打死你 -->
+                <!-- 萌化～ -->
                 <div class="c_img i_two" onclick="img_two(this)" ng-if="content.animation.animation_class == 'WhatAnimationRippleEffect'">
                     <div index="1" data-image="url({{content.photos[0].url_middle}});"></div>
                     <div index="2" data-image="url({{content.photos[1].url_middle}});"></div>
                 </div>
 
-                <div class="c_img i_three" onclick="img_three(this)" ng-if="item.animation.animation_class == 'WhatAnimationOglFlip'">
+                <!-- 不吃药打死你 ok -->
+                <div class="c_img i_one" onclick="img_one(this)" ng-if="item.animation.animation_class == 'WhatAnimationOglFlip'">
                     <div index="1">
                         <img src="{{item.photos[0].url_middle}}">
                     </div>
@@ -44,6 +46,7 @@
                     </div>
                 </div>
                 
+                <!-- 好青年 ok -->
                 <div class="c_img i_four" onclick="img_four(this)" ng-if="item.animation.animation_class == 'WhatAnimationOpenDoor'">
                     <div class="i_four_one">
                         <div index="1">
@@ -63,6 +66,7 @@
                     </div>
                 </div> 
                 
+                <!-- 我为何如此美 ok -->
                 <div class="c_img i_five" onclick="img_five(this)" ng-if="item.animation.id == animation_class == 'WhatAnimationFallen'">
                     <div index="1">
                         <div class="three_1" style="background-image:url({{item.photos[0].url_middle}});background-position: 0% 0%;"></div>
@@ -129,10 +133,16 @@
                 </div>
 
                 <!-- 自拍中勿打扰 -->
-                <div class="c_img i_six" onclick="img_six(this)" ng-if="content.animation.animation_class == 'WhatAnimationYUGLPowDistortion'">
+                <div class="c_img i_one" onclick="img_one(this)" ng-if="item.animation.animation_class == 'WhatAnimationYUGLPowDistortion'">
+                    <div index="1">
+                        <img src="{{item.photos[0].url_middle}}">
+                    </div>
+                    <div index="2">
+                        <img src="{{item.photos[1].url_middle}}">
+                    </div>
                 </div>
 
-
+                <!-- 基情噼里啪啦 ok -->
                 <div class="c_img i_seven" onclick="img_seven(this)" ng-if="item.animation.animation_class == 'WhatAnimationYUGLSwap'">
                     <div index="1">
                         <img src="{{item.photos[0].url_middle}}">
@@ -141,6 +151,16 @@
                         <img src="{{item.photos[1].url_middle}}">
                     </div>
                 </div> 
+
+                <!-- 反差萌 ok -->
+                <div class="c_img i_one" onclick="img_one(this)" ng-if="item.animation.animation_class == 'WhatAnimationYUGLFlyeye'">
+                    <div index="1">
+                        <img src="{{item.photos[0].url_middle}}">
+                    </div>
+                    <div index="2">
+                        <img src="{{item.photos[1].url_middle}}">
+                    </div>
+                </div>
             <!-- end animation -->
 
             <ul class="c_topic">
