@@ -212,6 +212,7 @@
 
                     $scope.content = data.data;
 
+                    $(".c_img").css("height", $(".c_img").css("width"));
                     $(".page").removeClass("none");
                     $(".wait").addClass("none");
                     $("title").text(data.data.create_user.user_name + "的作品");
@@ -298,8 +299,6 @@
         function get_comment_error () {
                 $(".c_comment").addClass("none");
         }
-
-        $(".c_img").css("height", $(".c_img").css("width"));
     </script>
 </body>
 </html>

@@ -200,6 +200,7 @@
 
                 $scope.list = data.data.contents;
 
+                $(".c_img").css("height", $(".c_img").css("width"));
                 $(".page").removeClass("none");
                 $(".wait").addClass("none");
                 var url_link = data.data.share_info.url_link;
@@ -276,8 +277,6 @@
         function get_topic_error () {
             // body...
         }
-
-        $(".c_img").css("height", $(".c_img").css("width"));
     </script>
 </body>
 </html>
