@@ -212,10 +212,9 @@
 
                     $scope.content = data.data;
 
-
                     setTimeout(function () {
-                        $(".c_img").css("height", $(".panel").css("width"));
-                    }, 100);
+                        $(".c_img").css("height", window.screen.availWidth);
+                    }, 200);
 
                     $(".page").removeClass("none");
                     $(".wait").addClass("none");
@@ -252,10 +251,6 @@
                             
                     });
                     /* end add text to image */
-
-                    setTimeout(function() {
-                        $(".i_two div").ripples({resolution: 128, dropRadius: 20, perturbance: 0.4,});
-                    }, 100);
                 })
                 .error(get_content_error);
 

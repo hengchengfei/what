@@ -257,8 +257,8 @@
                 $scope.list = data.data.contents;
 
                 setTimeout(function () {
-                    $(".c_img").css("height", $(".panel").css("width"));
-                }, 100);
+                    $(".c_img").css("height", window.screen.availWidth - 14);
+                }, 200);
 
                 $(".page").removeClass("none");
                 $(".wait").addClass("none");
