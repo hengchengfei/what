@@ -256,7 +256,10 @@
 
                 $scope.list = data.data.contents;
 
-                $(".c_img").css("height", $(".c_img").css("width"));
+                setTimeout(function () {
+                    $(".c_img").css("height", $(".panel").css("width"));
+                }, 100);
+
                 $(".page").removeClass("none");
                 $(".wait").addClass("none");
                 var url_link = data.data.share_info.url_link;

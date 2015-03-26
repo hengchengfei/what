@@ -212,7 +212,11 @@
 
                     $scope.content = data.data;
 
-                    $(".c_img").css("height", $(".c_img").css("width"));
+
+                    setTimeout(function () {
+                        $(".c_img").css("height", $(".panel").css("width"));
+                    }, 100);
+
                     $(".page").removeClass("none");
                     $(".wait").addClass("none");
                     $("title").html(data.data.create_user.user_name + "的作品");
