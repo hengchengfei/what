@@ -15,14 +15,17 @@
             $(this).toggleClass("none");
         });
 
-        if (navigator.userAgent.match(/Mac OS X/i) && ! navigator.userAgent.match(/MicroMessenger/i)) {
-                $("#download").removeClass("none");
+        if (navigator.userAgent.match(/Mac OS X/i)) {
+
+            $("#download").removeClass("none");
+            if ( ! navigator.userAgent.match(/MicroMessenger/i)) {
 
                 if (location.pathname.match(/topic/)) {
                     $("#download a").attr("href", "selfwhat://?type=topic" + "&id=" + get_url_param("id") + "&name=" + location.hash);
                 } else if (location.pathname.match(/content/)) {
                     $("#download a").attr("href", "selfwhat://?type=content" + "&id=" + get_url_param("id"));
                 }
+            }
         }
 
         function download_click () {

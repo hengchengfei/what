@@ -9,9 +9,11 @@
 </head>
 <body>
 
-    <div class="wait"></div>
+    <div class="wait">
+        <div></div>
+    </div>
 
-    <div class="page" ng-controller="TopicCtrl">
+    <div class="page none" ng-controller="TopicCtrl">
         <section class="panel" ng-repeat="item in list">
             <div class="c_head">
                 <img class="cicle" src="{{item.create_user.user_avatar}}" width="44" height="44">
@@ -173,7 +175,7 @@
             </div>
             <div class="c_foot">
                 <div class="c_watched">
-                    <em>{{item.count_info.view_count}}</em>
+                    <em ng-bind="item.count_info.view_count"></em>
                 </div>
                 <a href="../content?id={{item.id}}"><em class="c_content"></em></a>
             </div>
@@ -197,6 +199,11 @@
                 }
 
                 $scope.list = data.data.contents;
+
+                $(".page").removeClass("none");
+                $(".wait").addClass("none");
+                var url_link = data.data.share_info.url_link;
+                $("title").text(url_link.substr(url_link.indexOf("#")));
 
                 /* start add text to image */
                 if ( ! $("#canvas").length) {
@@ -237,9 +244,6 @@
                     });
                 });
                 /* end add text to image */
-
-                var url_link = data.data.share_info.url_link;
-                $("title").text(url_link.substr(url_link.indexOf("#")));
             })
             .error(get_topic_error);
         });

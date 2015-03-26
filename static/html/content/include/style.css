@@ -4,6 +4,33 @@
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
 }
+.wait {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+}
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+}
+.wait div {
+    position: relative;
+    left: 50%;
+    margin-top: 50%;
+    margin-left: -17px;
+    width: 35px;
+    height: 35px;
+    background-image: url(drap.png);
+    background-size: 100%;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
 .page {
     margin: 0 auto;
     padding-top: 1px;
