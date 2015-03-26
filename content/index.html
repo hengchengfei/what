@@ -1,8 +1,8 @@
 <!doctype html>
 <html ng-app="What">
-<head>
+<head ng-controller="HeadCtrl">
     <meta charset="UTF-8">
-    <title></title>
+    <title ng-bind="title"></title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
 <meta name="description" content="慢点，属于你和你的同类">
@@ -259,7 +259,26 @@
     <script>
         var app = angular.module('What', [], angular.noop);
 
-        app.controller('ContentCtrl', function ($scope, $http) {
+        app.factory('Data', function ($rootScope) {
+            return {
+                title: "",
+                setTitle: function (text) {
+                    this.title = text;
+                    $rootScope.$broadcast("title.update");
+                }
+            };
+        });
+
+        app.controller('HeadCtrl', function ($scope, Data) {
+            $scope.title = "";
+
+            $scope.$on("title.update", function () {
+                $scope.title = Data.title;
+                $scope.$digest();
+            });
+        });
+
+        app.controller('ContentCtrl', function ($scope, $http, Data) {
                 $scope.content = [];
                 $scope.comment = [];
 
@@ -278,7 +297,7 @@
 
                     $(".page").removeClass("none");
                     $(".wait").addClass("none");
-                    $("title").html(data.data.create_user.user_name + "的作品");
+                    Data.setTitle(data.data.create_user.user_name + "的作品");
 
                     if ( ! data.data.zan_users || data.data.zan_users.length == 0) {
                         $(".c_user").addClass("none");
@@ -293,8 +312,10 @@
                             var img = new Image();
 
                             img.onload = function () {
-                                    cvs.width = img.width;
-                                    cvs.height = img.height;
+                                    // cvs.width = img.width;
+                                    // cvs.height = img.height;
+                                    cvs.width = window.screen.availWidth;
+                                    cvs.height = window.screen.availWidth;
 
                                     ctx.clearRect(0, 0, cvs.width, cvs.height);
                                     ctx.font = "normal 16px microsoft yahei";

@@ -1,8 +1,8 @@
 <!doctype html>
 <html ng-app="What">
-<head>
+<head ng-controller="HeadCtrl">
     <meta charset="UTF-8">
-    <title></title>
+    <title ng-bind="title"></title>
 
     <link rel="import" href="../include/link.html?__inline">
     <link rel="stylesheet" href="include/style.css?__inline">
@@ -23,7 +23,7 @@
 
             <!-- start animation -->
                 <!-- 我是时尚 ok -->
-                <div class="c_img i_one" onclick="img_one(this)" ng-if="item.animation.animation_class == 'WhatAnimationOglFlip'">
+                <div class="c_img i_one" onclick="img_one(this)" ng-if="item.animation.animation_class == 'WhatAnimationEraseInOut'">
                     <div index="1">
                         <img src="{{item.photos[0].url_middle}}">
                     </div>
@@ -192,7 +192,26 @@
     <script>
         var app = angular.module('What', [], angular.noop);
 
-        app.controller('TopicCtrl', function ($scope, $http) {
+        app.factory('Data', function ($rootScope) {
+            return {
+                title: "test",
+                setTitle: function (text) {
+                    this.title = text;
+                    $rootScope.$broadcast("title.update");
+                }
+            };
+        });
+
+        app.controller('HeadCtrl', function ($scope, Data) {
+            $scope.title = "";
+
+            $scope.$on("title.update", function () {
+                $scope.title = Data.title;
+                $scope.$digest();
+            });
+        });
+
+        app.controller('TopicCtrl', function ($scope, $http, Data) {
             $scope.list = [];
 
             $http.get("http://api.mkwhat.com/self-app//topic/contentList?topic_id=" + get_url_param("id") + "&page=1")
@@ -211,7 +230,7 @@
                 $(".page").removeClass("none");
                 $(".wait").addClass("none");
                 var url_link = data.data.share_info.url_link;
-                $("title").html(url_link.substr(url_link.indexOf("#")));
+                Data.setTitle(url_link.substr(url_link.indexOf("#")));
 
                 /* start add text to image */
                 if ( ! $("#canvas").length) {
@@ -223,27 +242,18 @@
                             var img = new Image();
 
                             img.onload = function () {
-                                    cvs.width = img.width;
-                                    cvs.height = img.height;
+                                    // cvs.width = img.width;
+                                    // cvs.height = img.height;
+                                    cvs.width = window.screen.availWidth - 14;
+                                    cvs.height = window.screen.availWidth - 14;
 
                                     ctx.clearRect(0, 0, cvs.width, cvs.height);
                                     ctx.font = "normal 16px microsoft yahei";
 
                                     ctx.drawImage(img, 0, 0, cvs.width, cvs.height);
 
-                                    if (item.type == 0) {
-                                            ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
-                                            ctx.fillRect(0, cvs.height - 40, cvs.width, cvs.height);
-                                            ctx.textAlign = 'left';
-                                            ctx.textBaseline = 'middle';
-                                            ctx.fillStyle = "white";
-                                            ctx.fillText(item.text, 5, cvs.height - 20);
-                                    } else {
-                                            ctx.textAlign = 'center';
-                                            ctx.textBaseline = 'middle';
-                                            ctx.fillStyle = "white";
-                                            ctx.fillText(item.text, cvs.width / 2, cvs.height / 2);
-                                    }
+                                    render_text(ctx, item.text, item.type, cvs.width, cvs.height);
+
                                     item.url_middle = cvs.toDataURL("image/png");
                                     $scope.list[id].photos[key] = item;
                                     $scope.$digest()
