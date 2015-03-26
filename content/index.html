@@ -271,7 +271,7 @@
                     $(".c_img").css("height", $(".c_img").css("width"));
                     $(".page").removeClass("none");
                     $(".wait").addClass("none");
-                    $("title").text(data.data.create_user.user_name + "的作品");
+                    $("title").html(data.data.create_user.user_name + "的作品");
 
                     if ( ! data.data.zan_users || data.data.zan_users.length == 0) {
                         $(".c_user").addClass("none");

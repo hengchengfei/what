@@ -260,7 +260,7 @@
                 $(".page").removeClass("none");
                 $(".wait").addClass("none");
                 var url_link = data.data.share_info.url_link;
-                $("title").text(url_link.substr(url_link.indexOf("#")));
+                $("title").html(url_link.substr(url_link.indexOf("#")));
 
                 /* start add text to image */
                 if ( ! $("#canvas").length) {
