@@ -44,9 +44,13 @@
             </div>
 
             <!-- 萌化～ -->
-            <div class="c_img i_two" onclick="img_two(this)" ng-if="content.animation.animation_class == 'WhatAnimationOglFlip'">
-                <div index="1" data-image="url({{content.photos[0].url_middle}});"></div>
-                <div index="2" data-image="url({{content.photos[1].url_middle}});"></div>
+            <div class="c_img i_three" onclick="img_three(this)" ng-if="content.animation.animation_class == 'WhatAnimationOglFlip'">
+                <div index="1">
+                    <img src="{{content.photos[0].url_middle}}">
+                </div>
+                <div index="2">
+                    <img src="{{content.photos[1].url_middle}}">
+                </div>
             </div>
 
             <!-- 不吃药打死你 ok -->

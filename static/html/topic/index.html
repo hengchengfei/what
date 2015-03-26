@@ -23,7 +23,7 @@
 
             <!-- start animation -->
                 <!-- 我是时尚 ok -->
-                <div class="c_img i_one" onclick="img_one(this)" ng-if="item.animation.animation_class == 'WhatAnimationEraseInOut'">
+                <div class="c_img i_one" onclick="img_one(this)" ng-if="item.animation.animation_class == 'WhatAnimationOglFlip'">
                     <div index="1">
                         <img src="{{item.photos[0].url_middle}}">
                     </div>
@@ -33,9 +33,13 @@
                 </div>
 
                 <!-- 萌化～ -->
-                <div class="c_img i_two" onclick="img_two(this)" ng-if="item.animation.animation_class == 'WhatAnimationOglFlip'">
-                    <div index="1" data-image="url({{item.photos[0].url_middle}});"></div>
-                    <div index="2" data-image="url({{item.photos[1].url_middle}});"></div>
+                <div class="c_img i_three" onclick="img_three(this)" ng-if="item.animation.animation_class == 'WhatAnimationOglFlip'">
+                    <div index="1">
+                        <img src="{{item.photos[0].url_middle}}">
+                    </div>
+                    <div index="2">
+                        <img src="{{item.photos[1].url_middle}}">
+                    </div>
                 </div>
 
                 <!-- 不吃药打死你 ok -->
